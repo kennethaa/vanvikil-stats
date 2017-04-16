@@ -1,0 +1,36 @@
+{
+  "name": "vanvikil-stats",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "react": "^15.5.4",
+    "react-dom": "^15.5.4",
+    "react-router": "^4.1.1"
+  },
+  "devDependencies": {
+    "eslint": "^3.19.0",
+    "eslint-config-airbnb": "^14.1.0",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-jsx-a11y": "^4.0.0",
+    "eslint-plugin-react": "^6.10.3",
+    "flow-bin": "^0.44.0",
+    "husky": "^0.13.3",
+    "lint-staged": "^3.4.0",
+    "react-scripts": "0.9.5",
+    "stylelint": "^7.10.1",
+    "stylelint-config-standard": "^16.0.0"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
+    "flow": "flow",
+    "precommit": "yarn lint-staged",
+    "lint-staged": "lint-staged"
+  },
+  "lint-staged": {
+    "src/**/*.js": "eslint",
+    "src/**/*.css": "stylelint"
+  }
+}
