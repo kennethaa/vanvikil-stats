@@ -1,6 +1,10 @@
 // @flow
 
 import React, { Component } from 'react';
+import {
+  Container,
+  Table
+} from '../components/styled-components';
 import TableHeader from '../components/TableHeader';
 import MatchFacts from '../components/MatchFacts';
 import Goals from '../components/Goals';
@@ -62,24 +66,26 @@ class MatchInfo extends Component<void, Props, State> {
     const { match } = this.state;
 
     if (!match) {
-      return <table className="table-match-info table" />;
+      return null;
     }
 
     return (
-      <table className="table-match-info table">
-        <TableHeader header="KAMPFAKTA:" />
-        <MatchFacts match={match} />
-        <TableHeader header="MÅL:" />
-        <Goals match={match} />
-        <TableHeader header="KORT:" />
-        <Cards match={match} />
-        <TableHeader header="DAGENS VANVIKSTJERNER:" />
-        <Stars match={match} />
-        <TableHeader header="LAGOPPSTILLING:" />
-        <Lineups match={match} />
-        <TableHeader header="INNBYTTERE:" />
-        <Substitutes match={match} />
-      </table>
+      <Container>
+        <Table>
+          <TableHeader header="KAMPFAKTA" />
+          <MatchFacts match={match} />
+          <TableHeader header="MÅL" />
+          <Goals match={match} />
+          <TableHeader header="KORT" />
+          <Cards match={match} />
+          <TableHeader header="DAGENS VANVIKSTJERNER" />
+          <Stars match={match} />
+          <TableHeader header="LAGOPPSTILLING" />
+          <Lineups match={match} />
+          <TableHeader header="INNBYTTERE" />
+          <Substitutes match={match} />
+        </Table>
+      </Container>
     );
   }
 }

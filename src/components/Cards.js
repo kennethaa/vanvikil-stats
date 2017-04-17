@@ -2,6 +2,11 @@
 
 import React, { Component } from 'react';
 import Icon from 'react-fa';
+import {
+  TableBody,
+  TableRow,
+  TableColumn,
+} from './styled-components';
 
 type Props = {
   match: Object,
@@ -19,21 +24,31 @@ class Cards extends Component<void, Props, void> {
     );
 
     return (
-      <tbody>
-        {cards.map(card => (
-          <tr key={card.id}>
-            <td>{`${card.minute}'`}</td>
-            <td>
-              <Icon name="square" className={card.happening} />
-              {' '}
-              {card.hometeam === '0'
-                ? match.matchinfo.awayteam_id
-                : match.matchinfo.hometeam_id}
-              {card.player && `: ${card.player}`}
-            </td>
-          </tr>
-        ))}
-      </tbody>
+      <TableBody>
+        {cards.map(card => {
+          let color = '#FFEB3B';
+          if (card.happening === 'yellowredcard') {
+            color = '#FF9800';
+          }
+          else if (card.happening === 'red') {
+            color = '#F44336';
+          }
+
+          return (
+            <TableRow key={card.id}>
+              <TableColumn>{`${card.minute}'`}</TableColumn>
+              <TableColumn>
+                <Icon name="square" style={{ color }} />
+                {' '}
+                {card.hometeam === '0'
+                  ? match.matchinfo.awayteam_id
+                  : match.matchinfo.hometeam_id}
+                {card.player && `: ${card.player}`}
+              </TableColumn>
+            </TableRow>
+          );
+        })}
+      </TableBody>
     );
   }
 }

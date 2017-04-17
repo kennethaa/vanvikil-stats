@@ -2,6 +2,11 @@
 
 import React, { Component } from 'react';
 import Icon from 'react-fa';
+import {
+  TableBody,
+  TableRow,
+  TableColumn,
+} from './styled-components';
 
 type Props = {
   match: Object,
@@ -16,11 +21,11 @@ class Goals extends Component<void, Props, void> {
     );
 
     return (
-      <tbody>
+      <TableBody>
         {goals.map(goal => (
-          <tr key={goal.id}>
-            <td>{`${goal.minute}'`}</td>
-            <td>
+          <TableRow key={goal.id}>
+            <TableColumn>{`${goal.minute}'`}</TableColumn>
+          <TableColumn>
               <Icon name="futbol-o" />
               {' '}
               {goal.hometeam === '0'
@@ -28,10 +33,10 @@ class Goals extends Component<void, Props, void> {
                 : match.matchinfo.hometeam_id}
               {goal.scorer && `: ${goal.scorer}`}
               {goal.assist && `, (${goal.assist})`}
-            </td>
-          </tr>
+            </TableColumn>
+          </TableRow>
         ))}
-      </tbody>
+      </TableBody>
     );
   }
 }

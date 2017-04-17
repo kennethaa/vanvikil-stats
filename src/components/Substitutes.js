@@ -1,6 +1,11 @@
 // @flow
 
 import React, { Component } from 'react';
+import {
+  TableBody,
+  TableRow,
+  TableColumn,
+} from './styled-components';
 
 type Props = {
   match: Object,
@@ -11,18 +16,18 @@ class Substitutes extends Component<void, Props, void> {
     const { match } = this.props;
 
     return (
-      <tbody>
+      <TableBody>
         {match.players.substitute.map(player => (
-          <tr key={player.id}>
-            <td>
+          <TableRow key={player.id}>
+            <TableColumn>
               {player.number}
-            </td>
-            <td>
+            </TableColumn>
+            <TableColumn>
               {player.name}
-            </td>
-          </tr>
+            </TableColumn>
+          </TableRow>
         ))}
-      </tbody>
+      </TableBody>
     );
   }
 }
