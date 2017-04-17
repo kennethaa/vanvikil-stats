@@ -18,9 +18,7 @@ type Props = {
 };
 
 type State = {
-  match?: {
-    id: number,
-  },
+  match?: Object
 };
 
 class MatchInfo extends Component<void, Props, State> {
@@ -33,7 +31,7 @@ class MatchInfo extends Component<void, Props, State> {
     const { params } = match;
     const { matchId } = params;
 
-    fetch(`http://live.vanvikil.no/api/v1/live_feed/${matchId}`, {
+    fetch(`https://live.vanvikil.no/api/v1/live_feed/${matchId}`, {
       mode: 'cors',
     })
       .then(response => response.json())
