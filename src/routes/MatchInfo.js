@@ -22,7 +22,7 @@ type Props = {
 };
 
 type State = {
-  match?: Object
+  match?: Object,
 };
 
 class MatchInfo extends Component<void, Props, State> {
