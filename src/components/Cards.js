@@ -30,7 +30,7 @@ class Cards extends Component<void, Props, void> {
           if (card.happening === 'yellowredcard') {
             color = '#FF9800';
           }
-          else if (card.happening === 'red') {
+          else if (card.happening === 'redcard') {
             color = '#F44336';
           }
 
