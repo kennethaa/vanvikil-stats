@@ -28,7 +28,7 @@ class Goals extends Component<void, Props, void> {
           <TableColumn>
               <Icon name="futbol-o" />
               {' '}
-              {goal.hometeam === '0'
+              {goal.hometeam === 0
                 ? match.matchinfo.awayteam_id
                 : match.matchinfo.hometeam_id}
               {goal.scorer && `: ${goal.scorer}`}

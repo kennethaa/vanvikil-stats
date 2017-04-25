@@ -40,7 +40,7 @@ class Cards extends Component<void, Props, void> {
               <TableColumn>
                 <Icon name="square" style={{ color }} />
                 {' '}
-                {card.hometeam === '0'
+                {card.hometeam === 0
                   ? match.matchinfo.awayteam_id
                   : match.matchinfo.hometeam_id}
                 {card.player && `: ${card.player}`}
