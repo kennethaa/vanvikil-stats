@@ -5,6 +5,8 @@ import {
   BrowserRouter as Router,
   Route,
 } from 'react-router-dom';
+import Iframe from './components/Iframe';
+import withNavigation from './hocs/withNavigation';
 import Home from './routes/Home';
 import MatchInfo from './routes/MatchInfo';
 
@@ -13,10 +15,11 @@ class App extends Component {
     return (
       <Router>
         <div>
+          <Iframe />
           <Route
             exact
             path="/"
-            component={Home}
+            render={withNavigation(Home)}
           />
           <Route
             path="/match-info/:matchId"

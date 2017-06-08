@@ -11,10 +11,22 @@ export const Row = styled.div`
   display: flex;
   flex-wrap: wrap;
 `;
+
 export const Col = styled.div`
   position: relative;
-  width: 100%;
   min-height: 1px;
+  flex-basis: 0;
+  flex-grow: 1;
+  flex: ${props => props.colWidth ? `0 0 ${props.colWidth}%` : '0 0 100%'};
+  max-width: ${props => props.colWidth ? `${props.colWidth}%` : '100%'};
+`;
+
+export const ColAuto = styled.div`
+  position: relative;
+  min-height: 1px;
+  flex: 0 0 auto;
+  width: auto;
+  max-width: none;
 `;
 
 export const Table = styled.table`
