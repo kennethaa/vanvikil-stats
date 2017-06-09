@@ -10,7 +10,15 @@ const Nav = styled.nav`
   background: rgba(4, 18, 31, 0.7);
 `;
 const NavItem = styled.a`
-  padding: 1rem;
+  display: block;
+  width: 100%;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  user-select: none;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  line-height: 1.25;
   color: #fff;
 `;
 
