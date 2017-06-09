@@ -17,17 +17,18 @@ const NavItem = styled.a`
   vertical-align: middle;
   user-select: none;
   padding: 0.5rem 1rem;
-  font-size: 1rem;
-  line-height: 1.25;
+  font-size: 1.5rem;
+  line-height: 2;
+  background: ${props => props.active && 'rgba(0, 166, 231, 1)'};
   color: #fff;
 `;
 
 const navItems = [
   {
-    name: 'Hjem'
+    name: 'HJEM'
   },
   {
-    name: 'Om'
+    name: 'OM'
   }
 ]
 
