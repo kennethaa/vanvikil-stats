@@ -14,8 +14,8 @@ function postMessage() {
 
 function iframe() {
   // stop if window is top / not iframe
+  // eslint-disable-next-line no-restricted-globals
   if (self === top) {
-    // eslint-disable-line no-restricted-globals
     return;
   }
 
