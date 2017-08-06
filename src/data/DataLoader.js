@@ -7,7 +7,6 @@ import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Route, withRouter } from 'react-router-dom';
 import getData from './getData';
-import Loading from '../components/loading';
 import ErrorMessage from '../components/error';
 
 type Props = {
@@ -86,7 +85,7 @@ class DataLoader extends Component<void, Props, State> {
 
   render() {
     const { children, location } = this.props;
-    const { loading, error, previousLocation } = this.state;
+    const { error, previousLocation } = this.state;
 
     return (
       <Route
@@ -94,10 +93,6 @@ class DataLoader extends Component<void, Props, State> {
         render={() => {
           if (error) {
             return <ErrorMessage error={error} />;
-          }
-
-          if (loading) {
-            return <Loading />;
           }
 
           return children;
