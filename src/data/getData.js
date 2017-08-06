@@ -50,7 +50,8 @@ function getFeedWithParams(
   options: Options,
   match: Match
 ): string {
-  const params = fishnetFeedConfig.params(options, match);
+  const params =
+    fishnetFeedConfig.params && fishnetFeedConfig.params(options, match);
 
   if (params) {
     return `${fishnetFeedConfig.feed}/${params}`;

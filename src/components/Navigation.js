@@ -1,38 +1,46 @@
+// @flow
+
+import type { Routes } from '../types';
+
 import React, { Component } from 'react';
+import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 import { Container, Row, Col } from './styled-components';
 
 const Nav = styled.nav`background: rgba(4, 18, 31, 0.7);`;
-const NavItem = styled.a`
+
+const activeClassName = 'active';
+const NavItem = styled(NavLink).attrs({
+  activeClassName,
+})`
   display: block;
   width: 100%;
   text-align: center;
   white-space: nowrap;
   vertical-align: middle;
   user-select: none;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  overflow: hidden;
   padding: 0.5rem 1rem;
   font-size: 1.5rem;
   line-height: 2;
-  background: ${props => props.active && 'rgba(0, 166, 231, 1)'};
   color: #fff;
+  &.${activeClassName} {
+    background: rgba(0, 166, 231, 1);
+  }
 `;
 
-const navItems = [
-  {
-    name: 'HJEM',
-  },
-  {
-    name: 'OM',
-  },
-];
-
 type Props = {
-  children: ReactElement,
+  children: React$Element<*>,
+  routes: Routes,
 };
 
 class Navigation extends Component<void, Props, void> {
   render() {
-    const { children } = this.props;
+    const { children, routes } = this.props;
+
+    const navItems = routes.filter(route => route.nav);
 
     return (
       <Container>
@@ -40,10 +48,14 @@ class Navigation extends Component<void, Props, void> {
           <Col>
             <Nav>
               <Row>
-                {navItems.map(navItem =>
-                  <Col key={navItem.name} colWidth={100 / navItems.length}>
-                    <NavItem>
-                      {navItem.name}
+                {navItems.map((navItem, index) =>
+                  <Col key={index} colWidth={100 / navItems.length}>
+                    <NavItem
+                      to={navItem.path}
+                      exact={navItem.exact}
+                      title={navItem.nav}
+                    >
+                      {navItem.nav}
                     </NavItem>
                   </Col>
                 )}

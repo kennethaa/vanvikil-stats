@@ -4,10 +4,11 @@ import type { Match } from 'react-router-dom';
 
 export type FeedConfig = {
   feed: string,
-  params: (Options, Match) => string | void,
+  params?: (Options, Match) => string | void,
   required?: boolean,
 };
 export type PageConfig = {
+  nav: boolean,
   feeds?: {
     [key: string]: FeedConfig,
   },
@@ -30,8 +31,9 @@ export type Actions = {
 
 export type Path = string;
 export type Route = {
-  path: Path,
+  path?: Path,
+  nav?: string,
   component: ReactClass<*>,
-  exact: boolean,
+  exact?: boolean,
 };
 export type Routes = Array<Route>;
