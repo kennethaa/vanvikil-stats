@@ -2,11 +2,7 @@
 
 import React, { Component } from 'react';
 import Icon from 'react-fa';
-import {
-  TableBody,
-  TableRow,
-  TableColumn,
-} from './styled-components';
+import { TableBody, TableRow, TableColumn } from './styled-components';
 
 type Props = {
   match: Object,
@@ -21,12 +17,8 @@ class Stars extends Component<void, Props, void> {
       <TableBody>
         <TableRow>
           <TableColumn>
-            <Icon name="star" />
-            {' '}
-            <Icon name="star" />
-            {' '}
-            <Icon name="star" />
-        </TableColumn>
+            <Icon name="star" /> <Icon name="star" /> <Icon name="star" />
+          </TableColumn>
           <TableColumn>
             {match.players.mappedPlayers[matchinfo.star3_id] &&
               match.players.mappedPlayers[matchinfo.star3_id].name}
@@ -34,10 +26,8 @@ class Stars extends Component<void, Props, void> {
         </TableRow>
         <TableRow>
           <TableColumn>
-            <Icon name="star" />
-            {' '}
-            <Icon name="star" />
-        </TableColumn>
+            <Icon name="star" /> <Icon name="star" />
+          </TableColumn>
           <TableColumn>
             {match.players.mappedPlayers[matchinfo.star2_id] &&
               match.players.mappedPlayers[matchinfo.star2_id].name}
@@ -46,7 +36,7 @@ class Stars extends Component<void, Props, void> {
         <TableRow>
           <TableColumn>
             <Icon name="star" />
-        </TableColumn>
+          </TableColumn>
           <TableColumn>
             {match.players.mappedPlayers[matchinfo.star1_id] &&
               match.players.mappedPlayers[matchinfo.star1_id].name}

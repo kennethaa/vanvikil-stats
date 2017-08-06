@@ -2,15 +2,11 @@ import React from 'react';
 import Navigation from '../components/Navigation';
 
 export default function withNavigation(Component) {
-  return (props) => {
+  return props => {
     return (
-      <Navigation
-        {...props}
-      >
-        <Component
-          {...props}
-        />
+      <Navigation {...props}>
+        <Component {...props} />
       </Navigation>
     );
-  }
+  };
 }

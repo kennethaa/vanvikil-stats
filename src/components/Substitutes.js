@@ -1,11 +1,7 @@
 // @flow
 
 import React, { Component } from 'react';
-import {
-  TableBody,
-  TableRow,
-  TableColumn,
-} from './styled-components';
+import { TableBody, TableRow, TableColumn } from './styled-components';
 
 type Props = {
   match: Object,
@@ -17,7 +13,7 @@ class Substitutes extends Component<void, Props, void> {
 
     return (
       <TableBody>
-        {match.players.substitute.map(player => (
+        {match.players.substitute.map(player =>
           <TableRow key={player.id}>
             <TableColumn>
               {player.number}
@@ -26,7 +22,7 @@ class Substitutes extends Component<void, Props, void> {
               {player.name}
             </TableColumn>
           </TableRow>
-        ))}
+        )}
       </TableBody>
     );
   }

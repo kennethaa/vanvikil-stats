@@ -1,10 +1,7 @@
 // @flow
 
 import React, { Component } from 'react';
-import {
-  Container,
-  Table
-} from '../components/styled-components';
+import { Container, Table } from '../components/styled-components';
 import TableHeader from '../components/TableHeader';
 import MatchFacts from '../components/MatchFacts';
 import Goals from '../components/Goals';

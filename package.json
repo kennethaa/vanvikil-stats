@@ -22,7 +22,7 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "release": "yarn build && ./scripts/deploy.sh",
-    "prettier": "prettier --single-quote --trailing-comma es5 --write \"{src}/**/*.{js,json,css,scss}\"",
+    "prettier": "prettier --single-quote --trailing-comma es5 --write \"src/**/*.{js,json,css,scss}\"",
     "flow": "flow",
     "lint-staged": "lint-staged",
     "precommit": "yarn flow && yarn lint-staged"

@@ -2,11 +2,7 @@
 
 import React, { Component } from 'react';
 import Icon from 'react-fa';
-import {
-  TableBody,
-  TableRow,
-  TableColumn,
-} from './styled-components';
+import { TableBody, TableRow, TableColumn } from './styled-components';
 
 type Props = {
   match: Object,
@@ -20,7 +16,7 @@ class Cards extends Component<void, Props, void> {
       happening =>
         happening.happening === 'yellowcard' ||
         happening.happening === 'yellowredcard' ||
-        happening.happening === 'redcard',
+        happening.happening === 'redcard'
     );
 
     return (
@@ -29,8 +25,7 @@ class Cards extends Component<void, Props, void> {
           let color = '#FFEB3B';
           if (card.happening === 'yellowredcard') {
             color = '#FF9800';
-          }
-          else if (card.happening === 'redcard') {
+          } else if (card.happening === 'redcard') {
             color = '#F44336';
           }
 
@@ -38,8 +33,7 @@ class Cards extends Component<void, Props, void> {
             <TableRow key={card.id}>
               <TableColumn>{`${card.minute}'`}</TableColumn>
               <TableColumn>
-                <Icon name="square" style={{ color }} />
-                {' '}
+                <Icon name="square" style={{ color }} />{' '}
                 {card.hometeam === 0
                   ? match.matchinfo.awayteam_id
                   : match.matchinfo.hometeam_id}

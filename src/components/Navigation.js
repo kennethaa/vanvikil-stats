@@ -1,14 +1,8 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import {
-  Container,
-  Row,
-  Col
-} from './styled-components';
+import { Container, Row, Col } from './styled-components';
 
-const Nav = styled.nav`
-  background: rgba(4, 18, 31, 0.7);
-`;
+const Nav = styled.nav`background: rgba(4, 18, 31, 0.7);`;
 const NavItem = styled.a`
   display: block;
   width: 100%;
@@ -25,15 +19,15 @@ const NavItem = styled.a`
 
 const navItems = [
   {
-    name: 'HJEM'
+    name: 'HJEM',
   },
   {
-    name: 'OM'
-  }
-]
+    name: 'OM',
+  },
+];
 
 type Props = {
-  children: ReactElement
+  children: ReactElement,
 };
 
 class Navigation extends Component<void, Props, void> {
@@ -46,11 +40,8 @@ class Navigation extends Component<void, Props, void> {
           <Col>
             <Nav>
               <Row>
-                {navItems.map((navItem) =>
-                  <Col
-                    key={navItem.name}
-                    colWidth={100 / navItems.length}
-                  >
+                {navItems.map(navItem =>
+                  <Col key={navItem.name} colWidth={100 / navItems.length}>
                     <NavItem>
                       {navItem.name}
                     </NavItem>
