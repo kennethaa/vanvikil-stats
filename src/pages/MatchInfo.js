@@ -1,6 +1,11 @@
 // @flow
 
+import type { Match } from 'react-router-dom';
+import type { LiveFeed } from '../types';
+
 import React, { Component } from 'react';
+import { page } from '../hocs';
+import { getMappedPlayers } from '../data';
 import { Container, Table } from '../components/styled-components';
 import TableHeader from '../components/TableHeader';
 import MatchFacts from '../components/MatchFacts';
@@ -11,60 +16,34 @@ import Lineups from '../components/Lineups';
 import Substitutes from '../components/Substitutes';
 
 type Props = {
-  match: {
-    params: {
-      matchId: string,
-    },
+  match: Match,
+  feeds: {
+    liveFeed?: LiveFeed,
   },
 };
 
-type State = {
-  match?: Object,
-};
-
-class MatchInfo extends Component<void, Props, State> {
-  state = {
-    match: undefined,
-  };
-
-  componentDidMount() {
-    const { match } = this.props;
-    const { params } = match;
-    const { matchId } = params;
-
-    fetch(`https://live.vanvikil.no/api/v1/live_feed/${matchId}`, {
-      mode: 'cors',
-    })
-      .then(response => response.json())
-      .then(match => {
-        if (match.happenings) {
-          match.happenings.reverse();
-        }
-
-        match.players.mappedPlayers = {};
-
-        match.players.starting.forEach(player => {
-          match.players.mappedPlayers[player.id] = player;
-        });
-
-        match.players.substitute.forEach(player => {
-          match.players.mappedPlayers[player.id] = player;
-        });
-
-        match.matchinfo = match.matchinfo[0];
-
-        this.setState({
-          match,
-        });
-      });
-  }
-
+class MatchInfo extends Component<void, Props, void> {
   render() {
-    const { match } = this.state;
+    const { feeds } = this.props;
+    const { liveFeed } = feeds;
 
-    if (!match) {
+    if (!liveFeed) {
       return null;
     }
+
+    if (liveFeed.warning) {
+      return null;
+    }
+
+    const match = {
+      matchinfo: liveFeed.matchinfo && liveFeed.matchinfo[0],
+      happenings: liveFeed.happenings && liveFeed.happenings.reverse(),
+      players: liveFeed.players && {
+        starting: liveFeed.players.starting,
+        substitute: liveFeed.players.substitute,
+        mappedPlayers: getMappedPlayers(liveFeed.players),
+      },
+    };
 
     return (
       <Container>
@@ -86,4 +65,18 @@ class MatchInfo extends Component<void, Props, State> {
     );
   }
 }
-export default MatchInfo;
+export default page({
+  feeds: {
+    liveFeed: {
+      feed: 'live_feed',
+      params: (options, match) => {
+        if (!match.params.matchId) {
+          throw new Error('matchId is required');
+        }
+
+        return match.params.matchId;
+      },
+      required: true,
+    },
+  },
+})(MatchInfo);

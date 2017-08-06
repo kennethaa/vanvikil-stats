@@ -1,22 +1,22 @@
 // @flow
 
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
-import Iframe from './components/Iframe';
-import withNavigation from './hocs/withNavigation';
-import Home from './pages/Home';
-import MatchInfo from './pages/MatchInfo';
+import { BrowserRouter } from 'react-router-dom';
+import { VanvikIL } from './providers';
+import { DataLoader } from './data';
+import { renderRoutes } from 'react-router-config';
+import routes from './routes';
 
 class App extends Component {
   render() {
     return (
-      <Router>
-        <div>
-          <Iframe />
-          <Route exact path="/" render={withNavigation(Home)} />
-          <Route path="/match-info/:matchId" component={MatchInfo} />
-        </div>
-      </Router>
+      <BrowserRouter>
+        <VanvikIL routes={routes}>
+          <DataLoader>
+            {renderRoutes(routes)}
+          </DataLoader>
+        </VanvikIL>
+      </BrowserRouter>
     );
   }
 }
