@@ -17,8 +17,8 @@ export const Col = styled.div`
   min-height: 1px;
   flex-basis: 0;
   flex-grow: 1;
-  flex: ${props => props.colWidth ? `0 0 ${props.colWidth}%` : '0 0 100%'};
-  max-width: ${props => props.colWidth ? `${props.colWidth}%` : '100%'};
+  flex: ${props => (props.colWidth ? `0 0 ${props.colWidth}%` : '0 0 100%')};
+  max-width: ${props => (props.colWidth ? `${props.colWidth}%` : '100%')};
 `;
 
 export const ColAuto = styled.div`

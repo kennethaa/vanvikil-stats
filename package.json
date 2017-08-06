@@ -3,18 +3,18 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "flow-typed": "^2.1.2",
-    "react": "^15.5.4",
-    "react-dom": "^15.5.4",
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1",
     "react-fa": "^4.2.0",
-    "react-router-dom": "^4.1.1",
-    "styled-components": "^2.0.1"
+    "react-router-dom": "^4.1.2",
+    "styled-components": "^2.1.2"
   },
   "devDependencies": {
-    "flow-bin": "^0.47.0",
-    "husky": "^0.13.4",
-    "lint-staged": "^3.6.0",
-    "react-scripts": "^1.0.7"
+    "flow-bin": "^0.52.0",
+    "husky": "^0.14.3",
+    "lint-staged": "^4.0.2",
+    "prettier": "^1.5.3",
+    "react-scripts": "^1.0.10"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -22,9 +22,15 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "release": "yarn build && ./scripts/deploy.sh",
+    "prettier": "prettier --single-quote --trailing-comma es5 --write \"{src}/**/*.{js,json,css,scss}\"",
     "flow": "flow",
     "lint-staged": "lint-staged",
     "precommit": "yarn flow && yarn lint-staged"
   },
-  "lint-staged": {}
+  "lint-staged": {
+    "src/**/*.{js,json,css,scss}": [
+      "prettier --single-quote --trailing-comma es5",
+      "git add"
+    ]
+  }
 }
