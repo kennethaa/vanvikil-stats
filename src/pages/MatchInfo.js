@@ -67,7 +67,7 @@ class MatchInfo extends Component<void, Props, void> {
 }
 
 export default page({
-  nav: true,
+  nav: false,
   feeds: {
     liveFeed: {
       feed: 'live_feed',
