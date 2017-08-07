@@ -5,8 +5,11 @@ import type { Players } from '../../types';
 import React, { Component } from 'react';
 import { page } from '../../hocs';
 import { Row, Column } from 'hedron';
-import { Table } from '../../components/styled-components';
-import TableHeader from '../../components/TableHeader';
+import {
+  Content,
+  ContentTitle,
+  ContentBody,
+} from '../../components/styled-components';
 import SquadPlayers from './SquadPlayers';
 
 type Props = {
@@ -49,16 +52,38 @@ class Squad extends Component<void, Props, void> {
     return (
       <Row>
         <Column>
-          <Table>
-            <TableHeader header="MÅLVAKTER" />
-            <SquadPlayers players={squad.goalkeepers} />
-            <TableHeader header="FORSVAR" />
-            <SquadPlayers players={squad.defenders} />
-            <TableHeader header="MIDTBANE" />
-            <SquadPlayers players={squad.midtfielders} />
-            <TableHeader header="ANGREP" />
-            <SquadPlayers players={squad.strikers} />
-          </Table>
+          <Content>
+            <ContentTitle>
+              {'Målvakter'}
+            </ContentTitle>
+            <ContentBody>
+              <SquadPlayers players={squad.goalkeepers} />
+            </ContentBody>
+          </Content>
+          <Content>
+            <ContentTitle>
+              {'Forsvar'}
+            </ContentTitle>
+            <ContentBody>
+              <SquadPlayers players={squad.defenders} />
+            </ContentBody>
+          </Content>
+          <Content>
+            <ContentTitle>
+              {'Midtbane'}
+            </ContentTitle>
+            <ContentBody>
+              <SquadPlayers players={squad.midtfielders} />
+            </ContentBody>
+          </Content>
+          <Content>
+            <ContentTitle>
+              {'Angrep'}
+            </ContentTitle>
+            <ContentBody>
+              <SquadPlayers players={squad.strikers} />
+            </ContentBody>
+          </Content>
         </Column>
       </Row>
     );

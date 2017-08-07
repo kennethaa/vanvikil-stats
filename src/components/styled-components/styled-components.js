@@ -1,6 +1,7 @@
 // @flow
 
 import styled from 'styled-components';
+import { Row, Column } from 'hedron';
 
 export const Table = styled.table`
   width: 100%;
@@ -44,3 +45,17 @@ export const ContentTitle = styled.div`
   margin-bottom: 1rem;
 `;
 export const ContentBody = styled.div``;
+
+export const List = styled.div`margin-bottom: 2rem;`;
+export const ListItem = styled(Row)`
+  border-color: #e5e5e5;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+`;
+export const ListItemHeader = styled(ListItem)``;
+export const ListItemColumn = styled(Column)`
+  padding: 0.5rem 0;
+`;
+export const ListItemColumnCenter = styled(ListItemColumn)`
+  text-align: center;
+`;
