@@ -2,19 +2,18 @@
 
 import type { Routes } from '../types';
 import NotFound from '../pages/NotFound';
-import Stats from '../pages/Stats';
+import Overview from '../pages/Overview';
 import Live from '../pages/Live';
 import LiveMatch from '../pages/LiveMatch';
-import Squad from '../pages/Squad';
-import ATeam from '../pages/ATeam';
-import BTeam from '../pages/BTeam';
+import Squad from '../pages/squad';
+import Teams from '../pages/Teams';
 import MatchInfo from '../pages/MatchInfo';
 
 const routes: Routes = [
   {
     path: '/',
-    nav: 'Stats',
-    component: Stats,
+    nav: 'Oversikt',
+    component: Overview,
     exact: true,
   },
   {
@@ -35,15 +34,9 @@ const routes: Routes = [
     exact: true,
   },
   {
-    path: '/a-lag',
-    nav: 'A-lag',
-    component: ATeam,
-    exact: true,
-  },
-  {
-    path: '/b-lag',
-    nav: 'B-lag',
-    component: BTeam,
+    path: '/lag',
+    nav: 'Lag',
+    component: Teams,
     exact: true,
   },
   {

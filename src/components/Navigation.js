@@ -22,8 +22,8 @@ const NavItem = styled(NavLink).attrs({
   text-decoration: none;
   text-overflow: ellipsis;
   overflow: hidden;
-  padding: 0.5rem 1rem;
-  font-size: 1.5rem;
+  padding: 1rem 0.5rem;
+  font-size: 1rem;
   line-height: 2;
   color: #fff;
   &.${activeClassName} {

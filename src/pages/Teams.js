@@ -11,7 +11,7 @@ type Props = {
   },
 };
 
-class BTeam extends Component<void, Props, void> {
+class Teams extends Component<void, Props, void> {
   render() {
     const { feeds } = this.props;
     const { players } = feeds;
@@ -19,7 +19,10 @@ class BTeam extends Component<void, Props, void> {
     return (
       <div>
         <h1>
-          {'BTeam'}
+          {'A-lag'}
+        </h1>
+        <h1>
+          {'B-lag'}
         </h1>
         {JSON.stringify(players)}
       </div>
@@ -35,4 +38,4 @@ export default page({
       required: true,
     },
   },
-})(BTeam);
+})(Teams);

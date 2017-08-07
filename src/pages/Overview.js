@@ -11,7 +11,7 @@ type Props = {
   },
 };
 
-class ATeam extends Component<void, Props, void> {
+class Overview extends Component<void, Props, void> {
   render() {
     const { feeds } = this.props;
     const { players } = feeds;
@@ -19,7 +19,7 @@ class ATeam extends Component<void, Props, void> {
     return (
       <div>
         <h1>
-          {'ATeam'}
+          {'Overview'}
         </h1>
         {JSON.stringify(players)}
       </div>
@@ -35,4 +35,4 @@ export default page({
       required: true,
     },
   },
-})(ATeam);
+})(Overview);
