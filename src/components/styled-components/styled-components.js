@@ -2,33 +2,6 @@
 
 import styled from 'styled-components';
 
-export const Container = styled.div`
-  width: 100%;
-  margin-right: auto;
-  margin-left: auto;
-`;
-export const Row = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-`;
-
-export const Col = styled.div`
-  position: relative;
-  min-height: 1px;
-  flex-basis: 0;
-  flex-grow: 1;
-  flex: ${props => (props.colWidth ? `0 0 ${props.colWidth}%` : '0 0 100%')};
-  max-width: ${props => (props.colWidth ? `${props.colWidth}%` : '100%')};
-`;
-
-export const ColAuto = styled.div`
-  position: relative;
-  min-height: 1px;
-  flex: 0 0 auto;
-  width: auto;
-  max-width: none;
-`;
-
 export const Table = styled.table`
   width: 100%;
   text-align: left;
@@ -55,3 +28,19 @@ export const TableColumn = styled.td`
   border-bottom-style: solid;
   border-color: #e5e5e5;
 `;
+
+export const Content = styled.div`
+  margin: 0;
+  padding: 0;
+  border: 0;
+`;
+export const ContentTitle = styled.div`
+  text-transform: uppercase;
+  font-size: 1rem;
+  border-color: #e5e5e5;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  padding-bottom: 0.2rem;
+  margin-bottom: 1rem;
+`;
+export const ContentBody = styled.div``;

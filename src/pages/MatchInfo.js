@@ -6,7 +6,8 @@ import type { LiveFeed } from '../types';
 import React, { Component } from 'react';
 import { page } from '../hocs';
 import { getMappedPlayers } from '../data';
-import { Container, Table } from '../components/styled-components';
+import { Page } from 'hedron';
+import { Table } from '../components/styled-components';
 import TableHeader from '../components/TableHeader';
 import MatchFacts from '../components/MatchFacts';
 import Goals from '../components/Goals';
@@ -46,7 +47,7 @@ class MatchInfo extends Component<void, Props, void> {
     };
 
     return (
-      <Container>
+      <Page fluid>
         <Table>
           <TableHeader header="KAMPFAKTA" />
           <MatchFacts match={match} />
@@ -61,7 +62,7 @@ class MatchInfo extends Component<void, Props, void> {
           <TableHeader header="INNBYTTERE" />
           <Substitutes match={match} />
         </Table>
-      </Container>
+      </Page>
     );
   }
 }

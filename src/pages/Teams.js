@@ -4,6 +4,7 @@ import type { Players } from '../types';
 
 import React, { Component } from 'react';
 import { page } from '../hocs';
+import { Row, Column } from 'hedron';
 
 type Props = {
   feeds: {
@@ -17,15 +18,19 @@ class Teams extends Component<void, Props, void> {
     const { players } = feeds;
 
     return (
-      <div>
-        <h1>
-          {'A-lag'}
-        </h1>
-        <h1>
-          {'B-lag'}
-        </h1>
-        {JSON.stringify(players)}
-      </div>
+      <Row>
+        <Column>
+          <h1>
+            {'A-lag'}
+          </h1>
+          <h1>
+            {'B-lag'}
+          </h1>
+          <pre>
+            {JSON.stringify(players, null, 2)}
+          </pre>
+        </Column>
+      </Row>
     );
   }
 }

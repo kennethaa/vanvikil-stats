@@ -4,7 +4,13 @@ import type { Players, Player } from '../../types';
 
 import React, { Component } from 'react';
 import { page } from '../../hocs';
-import { Row, Col, Table } from '../../components/styled-components';
+import { Row, Column } from 'hedron';
+import {
+  Table,
+  Content,
+  ContentTitle,
+  ContentBody,
+} from '../../components/styled-components';
 import TableHeader from '../../components/TableHeader';
 import OverviewPlayers from './OverviewPlayers';
 
@@ -79,80 +85,88 @@ class Overview extends Component<void, Props, void> {
 
     return (
       <Row>
-        <Col colWidth="50">
-          <h1>
-            {'A-lag'}
-          </h1>
-          <Table>
-            <TableHeader header="STJERNER" />
-            <OverviewPlayers
-              players={getTopPlayers(players, 'ateam', 'stars')}
-              team="ateam"
-              items={[undefined, undefined, 'stars']}
-            />
-            <TableHeader header="TOPPSCORER" />
-            <OverviewPlayers
-              players={getTopPlayers(players, 'ateam', 'goals')}
-              team="ateam"
-              items={[undefined, undefined, 'goals']}
-            />
-            <TableHeader header="SERVITØREN" />
-            <OverviewPlayers
-              players={getTopPlayers(players, 'ateam', 'assists')}
-              team="ateam"
-              items={[undefined, undefined, 'assists']}
-            />
-            <TableHeader header="POENGBØRS" />
-            <OverviewPlayers
-              players={getTopPlayers(players, 'ateam', 'points')}
-              team="ateam"
-              items={[undefined, undefined, 'points']}
-            />
-            <TableHeader header="RÅTASSEN" />
-            <OverviewPlayers
-              players={getAngryPlayers(players, 'ateam')}
-              team="ateam"
-              items={['yellow_cards', 'yellowred_cards', 'red_cards']}
-            />
-          </Table>
-        </Col>
-        <Col colWidth="50">
-          <h1>
-            {'B-lag'}
-          </h1>
-          <Table>
-            <TableHeader header="STJERNER" />
-            <OverviewPlayers
-              players={getTopPlayers(players, 'bteam', 'stars')}
-              team="bteam"
-              items={[undefined, undefined, 'stars']}
-            />
-            <TableHeader header="TOPPSCORER" />
-            <OverviewPlayers
-              players={getTopPlayers(players, 'bteam', 'goals')}
-              team="bteam"
-              items={[undefined, undefined, 'goals']}
-            />
-            <TableHeader header="SERVITØREN" />
-            <OverviewPlayers
-              players={getTopPlayers(players, 'bteam', 'assists')}
-              team="bteam"
-              items={[undefined, undefined, 'assists']}
-            />
-            <TableHeader header="POENGBØRS" />
-            <OverviewPlayers
-              players={getTopPlayers(players, 'bteam', 'points')}
-              team="bteam"
-              items={[undefined, undefined, 'points']}
-            />
-            <TableHeader header="RÅTASSEN" />
-            <OverviewPlayers
-              players={getAngryPlayers(players, 'bteam')}
-              team="bteam"
-              items={['yellow_cards', 'yellowred_cards', 'red_cards']}
-            />
-          </Table>
-        </Col>
+        <Column lg={6}>
+          <Content>
+            <ContentTitle>
+              {'A-lag'}
+            </ContentTitle>
+            <ContentBody>
+              <Table>
+                <TableHeader header="STJERNER" />
+                <OverviewPlayers
+                  players={getTopPlayers(players, 'ateam', 'stars')}
+                  team="ateam"
+                  items={[undefined, undefined, 'stars']}
+                />
+                <TableHeader header="TOPPSCORER" />
+                <OverviewPlayers
+                  players={getTopPlayers(players, 'ateam', 'goals')}
+                  team="ateam"
+                  items={[undefined, undefined, 'goals']}
+                />
+                <TableHeader header="SERVITØREN" />
+                <OverviewPlayers
+                  players={getTopPlayers(players, 'ateam', 'assists')}
+                  team="ateam"
+                  items={[undefined, undefined, 'assists']}
+                />
+                <TableHeader header="POENGBØRS" />
+                <OverviewPlayers
+                  players={getTopPlayers(players, 'ateam', 'points')}
+                  team="ateam"
+                  items={[undefined, undefined, 'points']}
+                />
+                <TableHeader header="RÅTASSEN" />
+                <OverviewPlayers
+                  players={getAngryPlayers(players, 'ateam')}
+                  team="ateam"
+                  items={['yellow_cards', 'yellowred_cards', 'red_cards']}
+                />
+              </Table>
+            </ContentBody>
+          </Content>
+        </Column>
+        <Column lg={6}>
+          <Content>
+            <ContentTitle>
+              {'B-lag'}
+            </ContentTitle>
+            <ContentBody>
+              <Table>
+                <TableHeader header="STJERNER" />
+                <OverviewPlayers
+                  players={getTopPlayers(players, 'bteam', 'stars')}
+                  team="bteam"
+                  items={[undefined, undefined, 'stars']}
+                />
+                <TableHeader header="TOPPSCORER" />
+                <OverviewPlayers
+                  players={getTopPlayers(players, 'bteam', 'goals')}
+                  team="bteam"
+                  items={[undefined, undefined, 'goals']}
+                />
+                <TableHeader header="SERVITØREN" />
+                <OverviewPlayers
+                  players={getTopPlayers(players, 'bteam', 'assists')}
+                  team="bteam"
+                  items={[undefined, undefined, 'assists']}
+                />
+                <TableHeader header="POENGBØRS" />
+                <OverviewPlayers
+                  players={getTopPlayers(players, 'bteam', 'points')}
+                  team="bteam"
+                  items={[undefined, undefined, 'points']}
+                />
+                <TableHeader header="RÅTASSEN" />
+                <OverviewPlayers
+                  players={getAngryPlayers(players, 'bteam')}
+                  team="bteam"
+                  items={['yellow_cards', 'yellowred_cards', 'red_cards']}
+                />
+              </Table>
+            </ContentBody>
+          </Content>
+        </Column>
       </Row>
     );
   }

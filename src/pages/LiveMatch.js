@@ -4,6 +4,7 @@ import type { LiveFeed } from '../types';
 
 import React, { Component } from 'react';
 import { page } from '../hocs';
+import { Row, Column } from 'hedron';
 
 type Props = {
   feeds: {
@@ -17,9 +18,13 @@ class LiveMatch extends Component<void, Props, void> {
     const { liveFeed } = feeds;
 
     return (
-      <pre>
-        {JSON.stringify(liveFeed)}
-      </pre>
+      <Row>
+        <Column>
+          <pre>
+            {JSON.stringify(liveFeed, null, 2)}
+          </pre>
+        </Column>
+      </Row>
     );
   }
 }

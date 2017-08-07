@@ -5,7 +5,7 @@ import type { Routes } from '../types';
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
-import { Container, Row, Col } from './styled-components';
+import { Page, Row, Column } from 'hedron';
 
 const Nav = styled.nav`background: rgba(4, 18, 31, 0.7);`;
 
@@ -43,28 +43,24 @@ class Navigation extends Component<void, Props, void> {
     const navItems = routes.filter(route => route.nav);
 
     return (
-      <Container>
-        <Row>
-          <Col>
-            <Nav>
-              <Row>
-                {navItems.map((navItem, index) =>
-                  <Col key={index} colWidth={100 / navItems.length}>
-                    <NavItem
-                      to={navItem.path}
-                      exact={navItem.exact}
-                      title={navItem.nav}
-                    >
-                      {navItem.nav}
-                    </NavItem>
-                  </Col>
-                )}
-              </Row>
-            </Nav>
-          </Col>
-        </Row>
+      <Page fluid>
+        <Nav>
+          <Row divisions={navItems.length}>
+            {navItems.map((navItem, index) =>
+              <Column key={index} fluid xs={1}>
+                <NavItem
+                  to={navItem.path}
+                  exact={navItem.exact}
+                  title={navItem.nav}
+                >
+                  {navItem.nav}
+                </NavItem>
+              </Column>
+            )}
+          </Row>
+        </Nav>
         {children}
-      </Container>
+      </Page>
     );
   }
 }
