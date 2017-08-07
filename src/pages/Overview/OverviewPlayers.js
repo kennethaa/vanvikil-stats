@@ -4,12 +4,16 @@ import type { Player } from '../../types';
 
 import React, { Component } from 'react';
 import {
-  TableBody,
-  TableRow,
-  TableColumn,
+  List,
+  ListItem,
+  ListItemHeader,
+  ListItemColumn,
+  ListItemColumnCenter,
 } from '../../components/styled-components';
+import { Link } from 'react-router-dom';
 
 type Props = {
+  header: string,
   players: Array<Player>,
   team: 'ateam' | 'bteam',
   items: Array<
@@ -24,27 +28,41 @@ type Props = {
     | 'red_cards'
     | void
   >,
+  itemsHeaders?: Array<string>,
 };
 
 class OverviewPlayers extends Component<void, Props, void> {
   render() {
-    const { players, team, items } = this.props;
+    const { header, players, team, items, itemsHeaders } = this.props;
 
     return (
-      <TableBody>
-        {players.map(player =>
-          <TableRow key={player.id}>
-            <TableColumn>
-              {player.name}
-            </TableColumn>
-            {items.map((item, index) =>
-              <TableColumn key={index}>
-                {item && player[team] && player[team][item]}
-              </TableColumn>
+      <List>
+        <ListItemHeader>
+          <ListItemColumn xs={12 - items.length}>
+            {header}
+          </ListItemColumn>
+          {itemsHeaders &&
+            itemsHeaders.map((itemHeader, index) =>
+              <ListItemColumnCenter key={index} xs={1}>
+                {itemHeader}
+              </ListItemColumnCenter>
             )}
-          </TableRow>
+        </ListItemHeader>
+        {players.map(player =>
+          <Link to={`/spillerstall/spiller/${player.id}`} key={player.id}>
+            <ListItem alignItems="center">
+              <ListItemColumn xs={12 - items.length}>
+                {player.name}
+              </ListItemColumn>
+              {items.map((item, index) =>
+                <ListItemColumnCenter key={index} xs={1}>
+                  {item && player[team] && player[team][item]}
+                </ListItemColumnCenter>
+              )}
+            </ListItem>
+          </Link>
         )}
-      </TableBody>
+      </List>
     );
   }
 }
