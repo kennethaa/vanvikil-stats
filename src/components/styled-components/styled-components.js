@@ -74,7 +74,7 @@ export const ListItemHeader = styled(ListItem)`
   color: rgba(0, 0, 0, 0.54);
 `;
 export const ListItemColumn = styled(Column)`
-  padding: 0.5rem;
+  padding: 0.5rem 0.2rem;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
