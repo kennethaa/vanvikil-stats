@@ -46,15 +46,38 @@ export const ContentTitle = styled.div`
 `;
 export const ContentBody = styled.div``;
 
-export const List = styled.div`margin-bottom: 2rem;`;
+export const List = styled.div`
+  margin-bottom: 2rem;
+
+  a {
+    text-decoration: none;
+    color: rgba(0, 0, 0, 0.87);
+  }
+
+  a > section:hover {
+    background: #eeeeee;
+  }
+
+  a > section:active {
+    background: #f5f5f5;
+  }
+`;
 export const ListItem = styled(Row)`
+  font-size: 0.8rem;
+  color: rgba(0, 0, 0, 0.87);
   border-color: #e5e5e5;
   border-bottom-width: 1px;
   border-bottom-style: solid;
 `;
-export const ListItemHeader = styled(ListItem)``;
+export const ListItemHeader = styled(ListItem)`
+  font-size: 0.7rem;
+  color: rgba(0, 0, 0, 0.54);
+`;
 export const ListItemColumn = styled(Column)`
   padding: 0.5rem 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 `;
 export const ListItemColumnCenter = styled(ListItemColumn)`
   text-align: center;

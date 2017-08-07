@@ -10,6 +10,7 @@ import {
   ListItemColumn,
   ListItemColumnCenter,
 } from '../../components/styled-components';
+import { Link } from 'react-router-dom';
 
 type Props = {
   players: Array<Player>,
@@ -28,9 +29,9 @@ class SquadPlayers extends Component<void, Props, void> {
           <ListItemColumn xs={2} title="Navn">
             {'Navn'}
           </ListItemColumn>
-          <ListItemColumnCenter xs={1} title="Lag">
+          <ListItemColumn xs={1} title="Lag">
             {'Lag'}
-          </ListItemColumnCenter>
+          </ListItemColumn>
           <ListItemColumnCenter xs={1} title="Kamper">
             {'Kamper'}
           </ListItemColumnCenter>
@@ -60,86 +61,61 @@ class SquadPlayers extends Component<void, Props, void> {
           player =>
             player.ateam &&
             player.bteam &&
-            <ListItem key={player.id} alignItems="center">
-              <ListItemColumnCenter xs={1}>
-                {player.number}
-              </ListItemColumnCenter>
-              <ListItemColumn xs={2}>
-                {player.name}
-              </ListItemColumn>
-              <ListItemColumnCenter xs={1}>
-                <div>
+            <Link to={`/spillerstall/spiller/${player.id}`} key={player.id}>
+              <ListItem alignItems="center">
+                <ListItemColumnCenter xs={1}>
+                  {player.number}
+                </ListItemColumnCenter>
+                <ListItemColumn xs={2}>
+                  {player.name}
+                </ListItemColumn>
+                <ListItemColumn xs={1}>
                   {'A-lag'}
-                </div>
-                <div>
+                  <br />
                   {'B-lag'}
-                </div>
-              </ListItemColumnCenter>
-              <ListItemColumnCenter xs={1}>
-                <div>
+                </ListItemColumn>
+                <ListItemColumnCenter xs={1}>
                   {`${player.ateam.starting} (${player.ateam.sub})`}
-                </div>
-                <div>
+                  <br />
                   {`${player.bteam.starting} (${player.bteam.sub})`}
-                </div>
-              </ListItemColumnCenter>
-              <ListItemColumnCenter xs={1}>
-                <div>
+                </ListItemColumnCenter>
+                <ListItemColumnCenter xs={1}>
                   {player.ateam.goals}
-                </div>
-                <div>
+                  <br />
                   {player.bteam.goals}
-                </div>
-              </ListItemColumnCenter>
-              <ListItemColumnCenter xs={1}>
-                <div>
+                </ListItemColumnCenter>
+                <ListItemColumnCenter xs={1}>
                   {player.ateam.assists}
-                </div>
-                <div>
+                  <br />
                   {player.bteam.assists}
-                </div>
-              </ListItemColumnCenter>
-              <ListItemColumnCenter xs={1}>
-                <div>
+                </ListItemColumnCenter>
+                <ListItemColumnCenter xs={1}>
                   {player.ateam.points}
-                </div>
-                <div>
+                  <br />
                   {player.bteam.points}
-                </div>
-              </ListItemColumnCenter>
-              <ListItemColumnCenter xs={1}>
-                <div>
+                </ListItemColumnCenter>
+                <ListItemColumnCenter xs={1}>
                   {player.ateam.stars}
-                </div>
-                <div>
+                  <br />
                   {player.bteam.stars}
-                </div>
-              </ListItemColumnCenter>
-              <ListItemColumnCenter xs={1}>
-                <div>
+                </ListItemColumnCenter>
+                <ListItemColumnCenter xs={1}>
                   {player.ateam.yellow_cards}
-                </div>
-                <div>
+                  <br />
                   {player.bteam.yellow_cards}
-                </div>
-              </ListItemColumnCenter>
-              <ListItemColumnCenter xs={1}>
-                <div>
+                </ListItemColumnCenter>
+                <ListItemColumnCenter xs={1}>
                   {player.ateam.yellowred_cards}
-                </div>
-                <div>
+                  <br />
                   {player.bteam.yellowred_cards}
-                </div>
-              </ListItemColumnCenter>
-              <ListItemColumnCenter xs={1}>
-                <div>
+                </ListItemColumnCenter>
+                <ListItemColumnCenter xs={1}>
                   {player.ateam.red_cards}
-                </div>
-                <div>
+                  <br />
                   {player.bteam.red_cards}
-                </div>
-              </ListItemColumnCenter>
-            </ListItem>
+                </ListItemColumnCenter>
+              </ListItem>
+            </Link>
         )}
       </List>
     );
