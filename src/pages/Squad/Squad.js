@@ -10,7 +10,7 @@ import SquadPlayers from './SquadPlayers';
 
 type Props = {
   feeds: {
-    players: Players,
+    players?: Players,
   },
 };
 

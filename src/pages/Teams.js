@@ -7,7 +7,7 @@ import { page } from '../hocs';
 
 type Props = {
   feeds: {
-    players: Players,
+    players?: Players,
   },
 };
 

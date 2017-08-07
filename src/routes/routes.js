@@ -5,7 +5,7 @@ import NotFound from '../pages/NotFound';
 import Overview from '../pages/Overview';
 import Live from '../pages/Live';
 import LiveMatch from '../pages/LiveMatch';
-import Squad from '../pages/squad';
+import Squad from '../pages/Squad';
 import Teams from '../pages/Teams';
 import MatchInfo from '../pages/MatchInfo';
 

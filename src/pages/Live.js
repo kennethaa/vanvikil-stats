@@ -8,7 +8,7 @@ import { Redirect } from 'react-router-dom';
 
 type Props = {
   feeds: {
-    liveFeedCurrentMatch: LiveFeedCurrentMatch,
+    liveFeedCurrentMatch?: LiveFeedCurrentMatch,
   },
 };
 

@@ -7,7 +7,7 @@ import { page } from '../hocs';
 
 type Props = {
   feeds: {
-    liveFeed: LiveFeed,
+    liveFeed?: LiveFeed,
   },
 };
 
