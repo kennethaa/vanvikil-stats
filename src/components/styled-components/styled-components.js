@@ -1,6 +1,6 @@
 // @flow
 
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { Row, Column } from 'hedron';
 
 export const Table = styled.table`
@@ -81,4 +81,12 @@ export const ListItemColumn = styled(Column)`
 `;
 export const ListItemColumnCenter = styled(ListItemColumn)`
   text-align: center;
+`;
+
+export const Loading = styled.section`
+  ${props =>
+    props.loading &&
+    css`
+    filter: blur(1px);
+  `};
 `;

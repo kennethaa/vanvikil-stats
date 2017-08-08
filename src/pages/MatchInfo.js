@@ -6,7 +6,7 @@ import type { LiveFeed } from '../types';
 import React, { Component } from 'react';
 import { page } from '../hocs';
 import { getMappedPlayers } from '../data';
-import { Page } from 'hedron';
+import { Row, Column } from 'hedron';
 import { Table } from '../components/styled-components';
 import TableHeader from '../components/TableHeader';
 import MatchFacts from '../components/MatchFacts';
@@ -47,28 +47,29 @@ class MatchInfo extends Component<void, Props, void> {
     };
 
     return (
-      <Page fluid>
-        <Table>
-          <TableHeader header="KAMPFAKTA" />
-          <MatchFacts match={match} />
-          <TableHeader header="MÅL" />
-          <Goals match={match} />
-          <TableHeader header="KORT" />
-          <Cards match={match} />
-          <TableHeader header="DAGENS VANVIKSTJERNER" />
-          <Stars match={match} />
-          <TableHeader header="LAGOPPSTILLING" />
-          <Lineups match={match} />
-          <TableHeader header="INNBYTTERE" />
-          <Substitutes match={match} />
-        </Table>
-      </Page>
+      <Row>
+        <Column>
+          <Table>
+            <TableHeader header="KAMPFAKTA" />
+            <MatchFacts match={match} />
+            <TableHeader header="MÅL" />
+            <Goals match={match} />
+            <TableHeader header="KORT" />
+            <Cards match={match} />
+            <TableHeader header="DAGENS VANVIKSTJERNER" />
+            <Stars match={match} />
+            <TableHeader header="LAGOPPSTILLING" />
+            <Lineups match={match} />
+            <TableHeader header="INNBYTTERE" />
+            <Substitutes match={match} />
+          </Table>
+        </Column>
+      </Row>
     );
   }
 }
 
 export default page({
-  nav: false,
   feeds: {
     liveFeed: {
       feed: 'live_feed',

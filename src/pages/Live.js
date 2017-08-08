@@ -32,7 +32,6 @@ class Live extends Component<void, Props, void> {
 }
 
 export default page({
-  nav: true,
   feeds: {
     liveFeedCurrentMatch: {
       feed: 'live_feed_current_match',

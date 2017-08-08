@@ -61,7 +61,7 @@ class SquadPlayers extends Component<void, Props, void> {
           player =>
             player.ateam &&
             player.bteam &&
-            <Link to={`/spillerstall/spiller/${player.id}`} key={player.id}>
+            <Link to={`/spiller/${player.id}`} key={player.id}>
               <ListItem alignItems="center">
                 <ListItemColumnCenter xs={1}>
                   {player.number}

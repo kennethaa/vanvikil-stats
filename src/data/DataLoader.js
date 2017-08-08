@@ -8,6 +8,7 @@ import React, { Component } from 'react';
 import { Route, withRouter } from 'react-router-dom';
 import getData from './getData';
 import ErrorMessage from '../components/error';
+import { Loading } from '../components/styled-components';
 
 type Props = {
   match: Match,
@@ -85,7 +86,7 @@ class DataLoader extends Component<void, Props, State> {
 
   render() {
     const { children, location } = this.props;
-    const { error, previousLocation } = this.state;
+    const { loading, error, previousLocation } = this.state;
 
     return (
       <Route
@@ -95,7 +96,11 @@ class DataLoader extends Component<void, Props, State> {
             return <ErrorMessage error={error} />;
           }
 
-          return children;
+          return (
+            <Loading loading={loading}>
+              {children}
+            </Loading>
+          );
         }}
       />
     );

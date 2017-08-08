@@ -6,7 +6,6 @@ import type { PageConfig, Options, Data, Actions, Routes } from '../types';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import hoistStatics from 'hoist-non-react-statics';
-import Navigation from '../components/Navigation';
 
 type Props = {
   match: Match,
@@ -37,7 +36,7 @@ function createPage(WrappedComponent: ReactClass<*>, pageConfig: PageConfig) {
     };
 
     render() {
-      const { options, data, actions, routes } = this.context;
+      const { options, data, actions } = this.context;
       const { match } = this.props;
 
       let feeds = {};
@@ -67,19 +66,6 @@ function createPage(WrappedComponent: ReactClass<*>, pageConfig: PageConfig) {
         }, {});
       }
 
-      if (pageConfig.nav) {
-        return (
-          <Navigation routes={routes}>
-            <WrappedComponent
-              {...this.props}
-              options={options}
-              feeds={feeds}
-              actions={actions}
-            />
-          </Navigation>
-        );
-      }
-
       return (
         <WrappedComponent
           {...this.props}
@@ -94,7 +80,7 @@ function createPage(WrappedComponent: ReactClass<*>, pageConfig: PageConfig) {
   return hoistStatics(Container, WrappedComponent);
 }
 
-export default function page(pageConfig: PageConfig) {
+export default function page(pageConfig: PageConfig = {}) {
   return (WrappedComponent: ReactClass<*>) =>
     createPage(WrappedComponent, pageConfig);
 }

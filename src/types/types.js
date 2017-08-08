@@ -8,7 +8,6 @@ export type FeedConfig = {
   required?: boolean,
 };
 export type PageConfig = {
-  nav: boolean,
   feeds?: {
     [key: string]: FeedConfig,
   },

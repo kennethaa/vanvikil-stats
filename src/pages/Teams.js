@@ -36,7 +36,6 @@ class Teams extends Component<void, Props, void> {
 }
 
 export default page({
-  nav: true,
   feeds: {
     players: {
       feed: 'players',

@@ -30,7 +30,6 @@ class LiveMatch extends Component<void, Props, void> {
 }
 
 export default page({
-  nav: true,
   feeds: {
     liveFeed: {
       feed: 'live_feed',

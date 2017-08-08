@@ -21,6 +21,4 @@ class NotFound extends Component {
   }
 }
 
-export default page({
-  nav: true,
-})(NotFound);
+export default page()(NotFound);

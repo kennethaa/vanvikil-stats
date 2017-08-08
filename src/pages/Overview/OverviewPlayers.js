@@ -49,7 +49,7 @@ class OverviewPlayers extends Component<void, Props, void> {
             )}
         </ListItemHeader>
         {players.map(player =>
-          <Link to={`/spillerstall/spiller/${player.id}`} key={player.id}>
+          <Link to={`/spiller/${player.id}`} key={player.id}>
             <ListItem alignItems="center">
               <ListItemColumn xs={12 - items.length}>
                 {player.name}
