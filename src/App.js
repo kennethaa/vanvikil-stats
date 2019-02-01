@@ -8,19 +8,16 @@ import Toolbar from './components/Toolbar';
 import { DataLoader } from './data';
 import { renderRoutes } from 'react-router-config';
 import routes from './routes';
-import Overview from './pages/Overview';
 
 class App extends Component {
   render() {
-    const mainPage = window.location.hostname === 'vanvikil.no';
-
     return (
       <BrowserRouter>
         <VanvikIL routes={routes}>
           <Page fluid>
-            {!mainPage && <Toolbar routes={routes} />}
+            <Toolbar routes={routes} />
             <DataLoader>
-              {mainPage ? <Overview /> : renderRoutes(routes)}
+              {renderRoutes(routes)}
             </DataLoader>
           </Page>
         </VanvikIL>
