@@ -10,7 +10,6 @@ import {
   ListItemColumn,
   ListItemColumnCenter,
 } from '../../components/styled-components';
-import { Link } from 'react-router-dom';
 
 type Props = {
   players: Array<Player>,
@@ -61,61 +60,59 @@ class SquadPlayers extends Component<void, Props, void> {
           player =>
             player.ateam &&
             player.bteam &&
-            <Link to={`/spiller/${player.id}`} key={player.id}>
-              <ListItem alignItems="center">
-                <ListItemColumnCenter xs={1}>
-                  {player.number}
-                </ListItemColumnCenter>
-                <ListItemColumn xs={2}>
-                  {player.name}
-                </ListItemColumn>
-                <ListItemColumn xs={1}>
-                  {'A-lag'}
-                  <br />
-                  {'B-lag'}
-                </ListItemColumn>
-                <ListItemColumnCenter xs={1}>
-                  {`${player.ateam.starting} (${player.ateam.sub})`}
-                  <br />
-                  {`${player.bteam.starting} (${player.bteam.sub})`}
-                </ListItemColumnCenter>
-                <ListItemColumnCenter xs={1}>
-                  {player.ateam.goals}
-                  <br />
-                  {player.bteam.goals}
-                </ListItemColumnCenter>
-                <ListItemColumnCenter xs={1}>
-                  {player.ateam.assists}
-                  <br />
-                  {player.bteam.assists}
-                </ListItemColumnCenter>
-                <ListItemColumnCenter xs={1}>
-                  {player.ateam.points}
-                  <br />
-                  {player.bteam.points}
-                </ListItemColumnCenter>
-                <ListItemColumnCenter xs={1}>
-                  {player.ateam.stars}
-                  <br />
-                  {player.bteam.stars}
-                </ListItemColumnCenter>
-                <ListItemColumnCenter xs={1}>
-                  {player.ateam.yellow_cards}
-                  <br />
-                  {player.bteam.yellow_cards}
-                </ListItemColumnCenter>
-                <ListItemColumnCenter xs={1}>
-                  {player.ateam.yellowred_cards}
-                  <br />
-                  {player.bteam.yellowred_cards}
-                </ListItemColumnCenter>
-                <ListItemColumnCenter xs={1}>
-                  {player.ateam.red_cards}
-                  <br />
-                  {player.bteam.red_cards}
-                </ListItemColumnCenter>
-              </ListItem>
-            </Link>
+            <ListItem alignItems="center" key={player.id}>
+              <ListItemColumnCenter xs={1}>
+                {player.number}
+              </ListItemColumnCenter>
+              <ListItemColumn xs={2}>
+                {player.name}
+              </ListItemColumn>
+              <ListItemColumn xs={1}>
+                {'A-lag'}
+                <br />
+                {'B-lag'}
+              </ListItemColumn>
+              <ListItemColumnCenter xs={1}>
+                {`${player.ateam.starting} (${player.ateam.sub})`}
+                <br />
+                {`${player.bteam.starting} (${player.bteam.sub})`}
+              </ListItemColumnCenter>
+              <ListItemColumnCenter xs={1}>
+                {player.ateam.goals}
+                <br />
+                {player.bteam.goals}
+              </ListItemColumnCenter>
+              <ListItemColumnCenter xs={1}>
+                {player.ateam.assists}
+                <br />
+                {player.bteam.assists}
+              </ListItemColumnCenter>
+              <ListItemColumnCenter xs={1}>
+                {player.ateam.points}
+                <br />
+                {player.bteam.points}
+              </ListItemColumnCenter>
+              <ListItemColumnCenter xs={1}>
+                {player.ateam.stars}
+                <br />
+                {player.bteam.stars}
+              </ListItemColumnCenter>
+              <ListItemColumnCenter xs={1}>
+                {player.ateam.yellow_cards}
+                <br />
+                {player.bteam.yellow_cards}
+              </ListItemColumnCenter>
+              <ListItemColumnCenter xs={1}>
+                {player.ateam.yellowred_cards}
+                <br />
+                {player.bteam.yellowred_cards}
+              </ListItemColumnCenter>
+              <ListItemColumnCenter xs={1}>
+                {player.ateam.red_cards}
+                <br />
+                {player.bteam.red_cards}
+              </ListItemColumnCenter>
+            </ListItem>
         )}
       </List>
     );

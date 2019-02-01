@@ -23,7 +23,7 @@ const routes: Routes = [
   },
   {
     path: '/live',
-    nav: 'Live',
+    // nav: 'Live',
     component: Live,
     exact: false,
   },
@@ -35,7 +35,7 @@ const routes: Routes = [
   },
   {
     path: '/lag',
-    nav: 'Lag',
+    // nav: 'Lag',
     component: Teams,
     exact: true,
   },
