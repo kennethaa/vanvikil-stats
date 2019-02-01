@@ -10,7 +10,6 @@ import {
   ListItemColumn,
   ListItemColumnCenter,
 } from '../../components/styled-components';
-import { Link } from 'react-router-dom';
 
 type Props = {
   header: string,
@@ -49,18 +48,16 @@ class OverviewPlayers extends Component<void, Props, void> {
             )}
         </ListItemHeader>
         {players.map(player =>
-          <Link to={`/spiller/${player.id}`} key={player.id}>
-            <ListItem alignItems="center">
-              <ListItemColumn xs={12 - items.length}>
-                {player.name}
-              </ListItemColumn>
-              {items.map((item, index) =>
-                <ListItemColumnCenter key={index} xs={1}>
-                  {item && player[team] && player[team][item]}
-                </ListItemColumnCenter>
-              )}
-            </ListItem>
-          </Link>
+          <ListItem alignItems="center" key={player.id}>
+            <ListItemColumn xs={12 - items.length}>
+              {player.name}
+            </ListItemColumn>
+            {items.map((item, index) =>
+              <ListItemColumnCenter key={index} xs={1}>
+                {item && player[team] && player[team][item]}
+              </ListItemColumnCenter>
+            )}
+          </ListItem>
         )}
       </List>
     );
